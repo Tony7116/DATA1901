@@ -8,7 +8,7 @@ library(plotly)
 # ==============================================================================
 
 # This is the  built-in dataset that you can call upon to use
-diamonds_data = diamonds
+diamonds_data <- diamonds
 str(diamonds_data)
 
 # ==============================================================================
@@ -18,22 +18,29 @@ str(diamonds_data)
 head(diamonds_data, 10)
 
 # ggplot 2: 1 - Bar Plot
-p_bar = ggplot(diamonds_data, aes(x = cut)) +
-     geom_bar(aes(fill = clarity))
+p_bar <- ggplot(diamonds_data, aes(x = cut))
+geom_bar(aes(fill = clarity))
 plot(p_bar)
 ggplotly(p_bar)
 
 # ggplot 2: 2 - Histogram
-p_hist = ggplot(diamonds, aes(x = price)) +
+p_hist <- ggplot(diamonds, aes(x = price)) +
      geom_histogram(
-          aes(fill = cut), 
-          position = "dodge")
+          aes(fill = cut),
+          position = "dodge"
+     )
 plot(p_hist)
-ggplotly(p_hist) 
+ggplotly(p_hist)
 
 # ggplot 2: 3 - Simple Scatter Plot
-p_scatter = ggplot(diamonds_data, aes(x = carat, y = price)) +
-     geom_point()
-
+p_scatter <- ggplot(diamonds_data, aes(x = carat, y = price)) +
+     geom_point(aes(color = clarity, shape = cut))
 plot(p_scatter)
 ggplotly(p_scatter)
+
+# ggplot 2: 4 - box plot
+p_box <- ggplot(diamonds, aes(x = color, y = price)) +
+     geom_boxplot() +
+     scale_y_log10() +
+     facet_grid(cut ~ .)
+plot(p_box)
