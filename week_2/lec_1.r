@@ -1,6 +1,6 @@
 library(tidyverse)
 # Read in the Road Fatalities Dataset
-data = read.csv("./Lab_2/Data/AllFatalities.csv", header = T)
+data = read.csv("./week_2/Data/AllFatalities.csv", header = T)
 
 # This lists out all the variables in the dataset
 names(data)
