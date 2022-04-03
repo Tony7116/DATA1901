@@ -54,7 +54,7 @@ plot(
   ylab = "freq"
 );
 
-cord.a = 
+
 
 # This calculates the lower tail (counting Left -> right)
 # probability of the specified SD point.
