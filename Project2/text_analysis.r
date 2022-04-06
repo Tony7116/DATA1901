@@ -29,6 +29,7 @@ repeat {
         break;
     }
     print(single_line);
+
 }
 
 close(inscription_file);
