@@ -9,6 +9,7 @@ table_column_names = c("Signum", "text")
 colnames(inscription_lookup_table) = table_column_names
 
 print(inscription_lookup_table)
+print("hello")
 
 # ===============================================================
 # READING INSCRIPTIONS DATA FILE
