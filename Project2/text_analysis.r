@@ -3,10 +3,14 @@ library(readxl);
 # ===============================================================
 # CREATING THE TEXT LOOKUP TABLE
 # ===============================================================
-inscription_signum_lookup_table = data.frame(matrix(ncol = 1, nrow = 0))
+inscription_lookup_table = data.frame(matrix(ncol = 3, nrow = 0))
 
-inscription_signum_lookup_table_col_names = c("Signum")
-colnames(inscription_signum_lookup_table) = inscription_signum_lookup_table_col_names
+inscription_lookup_table_col_names = c("Signum", "text", "dates")
+colnames(inscription_lookup_table) = 
+    inscription_lookup_table_col_names
+
+print(inscription_lookup_table)
+str(inscription_lookup_table)
 
 # ===============================================================
 # CREATING THE Signum LOOKUP TABLE
@@ -19,6 +23,7 @@ colnames(master_signum_lookup_table) = master_signum_lookup_col_names
 # Testing for existance of master_lookup_table
 print(master_signum_lookup_table)
 str(master_signum_lookup_table)
+
 
 # ===============================================================
 # CREATING THE inscription text LOOKUP TABLE
@@ -57,9 +62,15 @@ inscription_file = file(
     single_line = readLines(inscription_file, n = 1);
 
     sig_num_match = str_match(single_line, "[^ ]* [^ ]* [^ ]*")
-    single_text_line = str_match(single_line, "/^(?:[^ ]*\ ){3}([^ ]*)/")
+    single_text_line = str_remove(single_line, "[^ ]* [^ ]* [^ ]* ")
+    cleaned_single_text_line = str_remove_all(single_text_line, "([.][.][.][ ])|([ ][.][.][.])")
 
-    inscription_signum_lookup_table = rbind(inscription_signum_lookup_table, sig_num_match)
+    print(single_text_line)
+    print(cleaned_single_text_line)
+    print(final_single_text_line)
+
+    inscription_signum_lookup_table = 
+        rbind(inscription_signum_lookup_table, sig_num_match)
 
     result = "result: "
     string_print = paste(result, sig_num_match, sep = " ")
@@ -72,7 +83,6 @@ inscription_file = file(
     if (identical(single_line, character(0))) {
         break;
     }
-    
     print(single_line);
 
 close(inscription_file);
@@ -80,9 +90,3 @@ rm(inscription_file);
 
 print(inscription_signum_lookup_table)
 str(inscription_signum_lookup_table)
-
-
-
-
-
-
