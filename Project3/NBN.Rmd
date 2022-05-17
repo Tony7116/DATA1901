@@ -1,0 +1,25 @@
+---
+title: "DATA1901 Project 3: NBN"
+author: "Yefan Li"
+date: "17/05/2022"
+output:
+    prettydoc::html_pretty:
+        theme: architect
+
+---
+```{r imports, include=FALSE}
+source("Source/data_input_Func.R", local = knitr::knit_global())
+```
+# Introduction
+Telecommunications has been a critical piece of infrastructure for many countries over the past 5 to 6 decades. This is especially accentuated by the recent COVID-19 pandemic. People from all different inductries such as the finance, retail, manufacturing, education etc are all utilising this piece of infrastructure to navigate new ways of working mainly migrating to a online mode of work. This was certainly the case with Australia. With this rapid increase in demand of fast and reliable broadband, there was a race to find a solution to this issue. 
+
+The solution to this was to build a nation wide broadband network (NBN) that will bring fast and reliable broadband to every household and business. This project first accounced in 2009 by the Labour party aims to reach 93% of all premises with an optical fibre connection with the remaining 7% of the premises being a secure satilite connection. However when the Coalition won government in 2013, the original proposed plan was changed to still provide sufficient speeds for most users, but at a less costly and faster to build, and have a lower price for customers. The re-propsed plan was to adopt a mixed technology stack for the 93% of premises and retain the current solution for the 7% of premises.
+
+# Propose research question
+The aim of this research proposal is to investigate and provide a recommendation as to which method of broadband connection is best to optimise the broadband speeds due to changing variables such as location, price / speed tiers and internet providers.
+
+# Overview of dataset used in this report
+In this section, we will provide an overview of the contents of the following dataset: `broadband.csv`.
+```{r}
+import_data()
+```
