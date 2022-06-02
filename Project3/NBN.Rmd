@@ -8,7 +8,7 @@ output:
 
 ---
 ```{r imports, include=FALSE}
-source("Source/data_input_Func.R", local = knitr::knit_global())
+source("Source/data_input_Func.R")
 ```
 # Introduction
 Telecommunications has been a critical piece of infrastructure for many countries over the past 5 to 6 decades. This is especially accentuated by the recent COVID-19 pandemic. People from all different inductries such as the finance, retail, manufacturing, education etc are all utilising this piece of infrastructure to navigate new ways of working mainly migrating to a online mode of work. This was certainly the case with Australia. With this rapid increase in demand of fast and reliable broadband, there was a race to find a solution to this issue. 
@@ -21,5 +21,6 @@ The aim of this research proposal is to investigate and provide a recommendation
 # Overview of dataset used in this report
 In this section, we will provide an overview of the contents of the following dataset: `broadband.csv`.
 ```{r}
-import_data()
+library("tidyverse")
+import_data("Data/broadband.csv")
 ```

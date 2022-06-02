@@ -1,6 +1,6 @@
 library(tidyverse)
 # Read in the Road Fatalities Dataset
-data = read.csv("./week_2/Data/AllFatalities.csv", header = T)
+data = read.csv("./week_2/Data/2016FatalitiesC.csv", header = T)
 
 # This lists out all the variables in the dataset
 names(data)
@@ -48,3 +48,37 @@ barplot(gender_speed_limit_table, main="Fatalities by speed limit and biological
     xlab = "Speed Limit", col = c("lightblue", "lightgreen"),
         legend = rownames(gender_speed_limit_table), beside = TRUE
 )
+
+# ----------------------------------------------------------------------------------------------------------- # nolint
+# Lecture 5 - Quantitative data
+# Example 1 - Drawing a sinple histogram
+# Choosing the age as my variable
+age = data$Age
+print(age)
+
+# Choosing the class intervals 
+breaks = c(0, 18, 25, 70, 100)
+
+# Producing a distribution table
+table(cut(age, breaks, right = F))
+
+# produce an histogram
+hist(
+    age,
+    br = breaks,
+    freq = F,
+    right = F,
+    xlab = "Age (in yearas)",
+    ylab = "% per year",
+    main = "Histogram of age of Road Fatalities"
+)
+
+# ----------------------------------------------------------------------------------------------------------- # nolint
+# example 2 - controlling for a variable
+age_f = data$Age[data$Gender == "Female"]
+age_m = data$Age[data$Gender == "Male"]
+
+par(mfrow = c(1, 2))
+
+hist(age_f, freq = F)
+hist(age_m, freq = F)
