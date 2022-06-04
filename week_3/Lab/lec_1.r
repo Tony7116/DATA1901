@@ -15,7 +15,6 @@ bedrooms <- newtown_june_2017$Bedrooms
 types <- newtown_june_2017$Type
 mean(sold)
 mean(sold[types == "House" & bedrooms == "4"])
-
 # visually
 hist(sold, main = "Newtown Properties", xlab = "Price (in 1000s)")
 abline(v = mean(sold), col = "green")
@@ -37,3 +36,11 @@ sort(sold)
 length(sold)
 median(sold)
 median(sold[types == "House" & bedrooms == "4"])
+
+# ==============================================================================
+# VISUAL REPRESENTATION
+# ==============================================================================
+
+hist(sold)
+abline(v = mean(sold), col = "green")
+abline(v = median(sold), col = "purple")

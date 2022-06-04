@@ -82,3 +82,102 @@ par(mfrow = c(1, 2))
 
 hist(age_f, freq = F)
 hist(age_m, freq = F)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# a boxplot
+summary(age)
+
+par(mfrow = c(1, 2))
+boxplot(age)
+
+boxplot(age, horizontal = T)
+
+# A comparitive boxplot
+gender = data$Gender
+summary(age[gender == "Female"])
+summary(age[gender == "Male"])
+
+# age~gender does the comaritive display
+boxplot(age~gender, horizontal = T)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# scatter plot
+
+speed_limit = data$SpeedLimit
+plot(age, speed_limit)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# Data Visualisation
+diamonds
+str(diamonds)
+head(diamonds, 2)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# ggplot bar plot
+p = ggplot(
+    diamonds,
+    aes(x = cut)
+) + geom_bar()
+plot(p)
+
+p2 = ggplot(
+    diamonds,
+    aes(x = cut)
+) + geom_bar(
+        aes(fill = clarity)
+)
+plot(p2)
+
+p3 = ggplot(
+    diamonds,
+    aes(x = cut)
+) + geom_bar(
+    aes(fill = clarity),
+    position = "dodge"
+)
+plot(p3)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# ggplot histogram (1 quantitative variable)
+p_histogram_1 = ggplot(
+    diamonds,
+    aes(x = price)
+) + geom_histogram()
+plot(p_histogram_1)
+
+# ggplot histogram (1 quantitative variable) + (1 qualitative variable)
+p_histogram_2 = ggplot(
+    diamonds,
+    aes(x = price)
+) + geom_histogram(
+    aes(fill = cut)
+)
+plot(p_histogram_2)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# ggplot scatter plot (1 quantitative variable)
+p_scatter_1 = ggplot(
+    diamonds,
+    aes(x = carat, y = price)
+) + geom_point()
+plot(p_scatter_1)
+
+# ggplot histogram (1 quantitative variable) + (2 qualitative variable)
+p_scatter_2 = ggplot(
+    diamonds,
+    aes(x = carat, y = price)
+) + geom_point(
+    aes(
+        colour = clarity,
+        shape = cut
+    )
+)
+plot(p_scatter_2)
+
+# ------------------------------------------------------------------------------------------------------------ #nolint
+# ggplot box plot (1 quantitative variable, divided by 1 qualitative variable)
+p_box_1 = ggplot(
+    diamonds,
+    aes(x = color, y = price)
+) + geom_boxplot()
+plot(p_box_1)
